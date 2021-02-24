@@ -85,7 +85,15 @@ class UserTestController extends Controller
                 ], 404);
             }
 
-            return $userTest->delete();
+            if($userTest->delete()){
+                return response()->json([
+                    'message' => 'Usuário deletado com Sucesso!'
+                ], 200);
+            }
+
+            return response()->json([
+                'message' => 'Ocorreu um erro ao deletar o usuário informado!'
+            ], 500);
         }
 
         return response()->json([
