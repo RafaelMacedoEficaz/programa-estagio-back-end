@@ -27,31 +27,69 @@ class UserTestController extends Controller
         return $userTest::all();
     }
 
-    public function store(UserTestRequest $userTestRequest)
+    public function store(Request $request)
     {
-        dd("store");
-        $data = $userTestRequest->validated();
-dd($data);
+        $data = $request->all();
+
         $userTest = new UserTest();
 
         $userTest->fill($data);
 
-        return $userTest->save();
+        if($userTest->save()){
+            return response()->json([
+                'message' => 'Usuário cadastrado com Sucesso!'
+            ], 200);
+        }
+
+        return response()->json([
+            'message' => 'Ocorreu um erro ao cadastrar o usuário!'
+        ], 400);
+
 
     }
 
-    public function update(UserTestRequest $userTestRequest)
+    public function update(Request $request, $user_test_id)
     {
-        $data = $userTestRequest->validated();
+        $data = $request->all();
 
-        $userTest = UserTest::query()->find($data->id)->first();
-        $userTest = $data;
+        $userTest = UserTest::query()->where('id',$user_test_id)->first();
 
-        return $userTest->save();
+        if(!$userTest){
+            return response()->json([
+                'message' => 'Id do Usuário informado esta invalido!'
+            ], 404);
+        }
+
+        $userTest->fill($data);
+
+        if($userTest->save()){
+            return response()->json([
+                'message' => 'Usuário atualizado com Sucesso!'
+            ], 200);
+        }
+
+        return response()->json([
+            'message' => 'Ocorreu um erro ao atualizar as informações do usuário!'
+        ], 400);
+
     }
 
-    public function delete(UserTestRequest $userTestRequest)
+    public function destroy($user_test_id)
     {
-        $data = $userTestRequest->validated();
+        if($user_test_id){
+            $userTest = UserTest::query()->where('id',$user_test_id)->first();
+
+            if(!$userTest){
+                return response()->json([
+                    'message' => 'Id do Usuário informado esta invalido!'
+                ], 404);
+            }
+
+            return $userTest->delete();
+        }
+
+        return response()->json([
+            'message' => 'Informe um id de usuário!'
+        ], 403);
     }
 }

@@ -14,6 +14,7 @@ class UserTestRequest extends FormRequest
      */
     public function authorize()
     {
+//        return $this->request->count() > 0;
         return true;
     }
 
@@ -54,23 +55,26 @@ class UserTestRequest extends FormRequest
             'uf' => [
                 'required'
             ],
+            'complemento' => [
+                'string'
+            ],
             'cep' => [
                 'required'
             ]
         ];
     }
 
-    /**
-     * Get the error messages for the defined validation rules.
-     *
-     * @return array
-     */
-    public function messages()
-    {
-        return [
-            'required' => ':attribute é obrigatório.',
-            'numeric' => 'O :attribute deve ser um número.',
-            'email' => 'O :attribute informado não é válido como e-mail'
-        ];
-    }
+//    /**
+//     * Get the error messages for the defined validation rules.
+//     *
+//     * @return array
+//     */
+//    public function messages()
+//    {
+//        return [
+//            'required' => ':attribute é obrigatório.',
+//            'numeric' => 'O :attribute deve ser um número.',
+//            'email' => 'O :attribute informado não é válido como e-mail'
+//        ];
+//    }
 }
