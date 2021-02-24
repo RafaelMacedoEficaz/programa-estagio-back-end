@@ -9,6 +9,8 @@ class UserTest extends Model
 {
     use HasFactory;
 
+    protected $table = 'users_tests';
+
     /**
      * The attributes that are mass assignable.
      *

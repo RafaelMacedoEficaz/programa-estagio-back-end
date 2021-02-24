@@ -2,12 +2,11 @@
 
 namespace Database\Seeders;
 
-
-use App\Models\UserTest;
+use App\Models\Endereco;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 
-class UsersTestsSeeder extends Seeder
+class EnderecoSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,7 +15,7 @@ class UsersTestsSeeder extends Seeder
      */
     public function run()
     {
-        $users = [
+        $enderecos = [
             [
                 'seu_e-mail' => trans('front@eficazconsultoria.net.br'),
                 'nome' => trans('Rafael Eficaz'),
@@ -31,12 +30,12 @@ class UsersTestsSeeder extends Seeder
             ],
         ];
 
-        foreach ($users as $user) {
-            if (UserTest::where('nome', $user['nome'])->exists()) {
+        foreach ($enderecos as $street) {
+            if (Endereco::where('nome', $street['nome'])->exists()) {
                 continue;
             }
 
-            UserTest::create($user);
+            Endereco::create($user);
         }
     }
 }

@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserTestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+//Route::get('user', [UserTestController::class,'index']);
+//Route::get('user/{id}', [UserTestController::class,'show']);
+//Route::post('user', [UserTestController::class,'store']);
+//Route::put('user', [UserTestController::class,'update']);
+//Route::delete('user', [UserTestController::class,'delete']);
+
+Route::apiResource('user', UserTestController::class);
