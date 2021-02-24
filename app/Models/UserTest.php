@@ -17,10 +17,17 @@ class UserTest extends Model
      * @var array
      */
     protected $fillable = [
-        'seu_e-mail',
+        'seu_email',
         'nome',
-        'e-mail',
+        'email',
         'telefone',
+        'rua',
+        'numero',
+        'complemento',
+        'bairro',
+        'cidade',
+        'uf',
+        'cep'
     ];
 
 }

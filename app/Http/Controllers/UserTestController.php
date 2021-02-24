@@ -29,7 +29,15 @@ class UserTestController extends Controller
 
     public function store(UserTestRequest $userTestRequest)
     {
+        dd("store");
         $data = $userTestRequest->validated();
+dd($data);
+        $userTest = new UserTest();
+
+        $userTest->fill($data);
+
+        return $userTest->save();
+
     }
 
     public function update(UserTestRequest $userTestRequest)

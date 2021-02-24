@@ -15,10 +15,17 @@ class CreateTableUser extends Migration
     {
         Schema::create('users_tests', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('seu_e-mail', 250);
+            $table->string('seu_email', 250);
             $table->string('nome', 200);
-            $table->string('e-mail', 250);
+            $table->string('email', 250);
             $table->string('telefone', 15);
+            $table->string('rua', 250);
+            $table->string('numero', 20);
+            $table->string('complemento', 250);
+            $table->string('bairro', 250);
+            $table->string('cep', 9);
+            $table->string('cidade', 150);
+            $table->string('uf', 2);
             $table->timestamps();
             $table->softDeletes();
         });

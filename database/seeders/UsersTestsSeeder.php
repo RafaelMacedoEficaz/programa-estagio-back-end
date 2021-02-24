@@ -18,16 +18,30 @@ class UsersTestsSeeder extends Seeder
     {
         $users = [
             [
-                'seu_e-mail' => trans('front@eficazconsultoria.net.br'),
+                'seu_email' => trans('front@eficazconsultoria.net.br'),
                 'nome' => trans('Rafael Eficaz'),
-                'e-mail' => Str::slug('emailrafael@eficazconsultoria.net.br'),
+                'email' => trans('emailrafael@eficazconsultoria.net.br'),
                 'telefone' => trans('(14) 12345-1234'),
+                'rua' => 'Av. Higino Muzi Filho',
+                'numero' => '529',
+                'complemento' => 'Empresa',
+                'bairro' => 'Mirante',
+                'cidade' => 'Marília',
+                'uf' => 'SP',
+                'cep' => '17525-901'
             ],
             [
-                'seu_e-mail' => trans('front@eficazconsultoria.net.br'),
+                'seu_email' => trans('front@eficazconsultoria.net.br'),
                 'nome' => trans('Maria Eficaz'),
-                'e-mail' => Str::slug('emailmaria@eficazconsultoria.net.br'),
+                'email' => trans('emailmaria@eficazconsultoria.net.br'),
                 'telefone' => trans('(14) 54321-4321'),
+                'rua' => 'Av. Higino Muzi Filho',
+                'numero' => '529',
+                'complemento' => 'Empresa',
+                'bairro' => 'Mirante',
+                'cidade' => 'Marília',
+                'uf' => 'SP',
+                'cep' => '17525-901'
             ],
         ];
 

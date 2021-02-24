@@ -229,4 +229,12 @@ return [
 
     ],
 
+    'messages' => [
+        'required' => ':attribute é obrigatório.',
+        'numeric' => 'O :attribute deve ser um número.',
+        'email' => 'O :attribute informado não é válido como e-mail',
+        'status.in' => 'O :attribute deve ser processing, authorized, paid, refunded, waiting_payment, pending_refund ou refused.',
+        'uuid' => ':attribute informada não é do tipo Uuid'
+    ]
+
 ];
